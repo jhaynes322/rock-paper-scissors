@@ -46,7 +46,7 @@ let computerScore = parseInt(0);
 //let computerScore = 0;
 function game() {
     for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Pick a move");
+        let playerSelection = prompt("Pick a move").toLowerCase();
         const computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection))
         console.log("your score = " + userScore);
