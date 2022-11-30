@@ -1,4 +1,4 @@
-function computerPlay() {
+function getComputerChoice() {
     let num = Math.floor(Math.random() * 3 + 1);
     if (num === 1) {
         return "rock";
@@ -8,6 +8,8 @@ function computerPlay() {
         return "scissors";
     }
 }
+//const computerSelection = getComputerChoice();
+//const playerSelection = prompt("Choose");
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
@@ -45,11 +47,15 @@ let computerScore = parseInt(0);
 //let userScore = 0;
 //let computerScore = 0;
 function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Pick a move").toLowerCase();
-        const computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection))
-        console.log("your score = " + userScore);
-        console.log("Computer's score = " + computerScore);
-    }
+    //for (let i = 0; i < 5; i++) {
+
+    let playerSelection = prompt("Choose");
+    let computerSelection = getComputerChoice();
+    alert(playRound(playerSelection, computerSelection))
+    alert("your score = " + userScore);
+    alert("Computer's score = " + computerScore);
 }
+
+
+const rockBtn = document.querySelector('#rock');
+rockBtn.addEventListener('click', game());
