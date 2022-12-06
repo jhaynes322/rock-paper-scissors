@@ -8,18 +8,40 @@ function getComputerChoice() {
         return "scissors";
     }
 }
-//const computerSelection = getComputerChoice();
-//const playerSelection = prompt("Choose");
 
-function playRound(playerSelection, computerSelection) {
+const computerSelection = getComputerChoice();
+//let playerSelection = "rock";
+let userScore = parseInt(0);
+let computerScore = parseInt(0);
+
+
+function playRoundRock(computerSelection) {
+    let result = "";
+    if (computerSelection === "rock") {
+        result = "It's a draw!";
+    } else if (computerSelection === "scissors") {
+        userScore++;
+        result = "You win! Rock beats scissors";
+    } else if (computerSelection === "paper") {
+        computerScore++;
+        result = "You lose. Paper beats rock.";
+    }
+    return result;
+}
+
+function logResults() {
+    document.querySelector('#results').innerHTML = "test";
+    document.querySelector('#userScore').innerHTML = "Your score = " + userScore;
+    document.querySelector('#computerScore').innerHTML = "Computer's score = " + computerScore;
+}
+
+const rockBtn = document.getElementById("rock");
+rockBtn.addEventListener("click", playRoundRock);
+rockBtn.addEventListener("click", logResults);
+
+/*function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return ("It's a draw!");
-    } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
-        userScore++;
-        return ("You win! Rock beats scissors");
-    } else if (playerSelection === "rock" && computerSelection === "paper") {
-        computerScore++;
-        return ("You lose! Paper beats rock");
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         userScore++;
         return ("You win! Paper beats rock");
@@ -34,28 +56,13 @@ function playRound(playerSelection, computerSelection) {
         return ("You lose!Rock beats scissors");
     }
 
+}*/
+
+
+
+
+
+/*function testFunc() {
+    document.querySelector('#results').innerHTML = "this is also a test";
 }
-
-//let computerSelection = computerPlay();
-//let playerSelection = prompt("Choose your weapon");
-//console.log(computerSelection)
-//console.log(playRound(playerSelection, computerSelection));
-
-let userScore = parseInt(0);
-let computerScore = parseInt(0);
-//let playerSelection = prompt("Pick a move");
-//let userScore = 0;
-//let computerScore = 0;
-function game() {
-    //for (let i = 0; i < 5; i++) {
-
-    let playerSelection = prompt("Choose");
-    let computerSelection = getComputerChoice();
-    alert(playRound(playerSelection, computerSelection))
-    alert("your score = " + userScore);
-    alert("Computer's score = " + computerScore);
-}
-
-
-const rockBtn = document.querySelector('#rock');
-rockBtn.addEventListener('click', game());
+*/
