@@ -9,9 +9,8 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRoundRock(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
-
     if (playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") {
         ++computerScore;
         return "You Lose! Paper beats Rock";
@@ -20,7 +19,27 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") {
         ++userScore;
         return "You Win! Rock beats Scissors";
-    } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
+    }
+}
+
+let userScore = parseInt(0);
+let computerScore = parseInt(0);
+
+function gameRock() {
+    const playerSelection = "rock";
+    const computerSelection = getComputerChoice();
+    console.log(playRoundRock(playerSelection, computerSelection))
+    console.log("your score = " + userScore);
+    console.log("Computer's score = " + computerScore);
+}
+
+let rockBtn = document.querySelector('#rock');
+rockBtn.addEventListener('click', gameRock);
+
+
+/*function playRound(playerSelection, computerSelection) {
+    computerSelection = getComputerChoice();
+    if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
         ++userScore;
         return "You Win! Paper beats Rock";
     } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") {
@@ -37,18 +56,4 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return "Its a tie. Go Again";
     }
-}
-
-
-let userScore = parseInt(0);
-let computerScore = parseInt(0);
-
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Pick a move");
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection))
-        console.log("your score = " + userScore);
-        console.log("Computer's score = " + computerScore);
-    }
-}
+}*/
