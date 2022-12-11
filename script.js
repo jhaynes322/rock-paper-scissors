@@ -10,9 +10,8 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    let userScore = 0;
-    let computerScore = 0;
-    let = playerSelection = prompt("Make your move");
+    computerSelection = getComputerChoice();
+
     if (playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") {
         ++computerScore;
         return "You Lose! Paper beats Rock";
@@ -38,17 +37,14 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return "Its a tie. Go Again";
     }
-
 }
+
 
 let userScore = parseInt(0);
 let computerScore = parseInt(0);
-let playerSelection = prompt("Pick a move");
 
 function game() {
     for (let i = 0; i < 5; i++) {
-        let userScore = 0;
-        let computerScore = 0;
         let playerSelection = prompt("Pick a move");
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection))
