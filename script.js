@@ -10,27 +10,25 @@ function getComputerChoice() {
 }
 
 const computerSelection = getComputerChoice();
-//let playerSelection = "rock";
+//const playerSelection = "rock";
 let userScore = parseInt(0);
 let computerScore = parseInt(0);
-
-
-function playRoundRock(computerSelection) {
-    let result = "";
-    if (computerSelection === "rock") {
-        result = "It's a draw!";
-    } else if (computerSelection === "scissors") {
+//let result = "";
+//playerSelection = "rock";
+function playRoundRock(playerSelection = "rock", computerSelection) {
+    if (computerSelection === playerSelection) {
+        document.querySelector('#results').innerHTML = "It's a draw!";
+    } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
+        document.querySelector('#results').innerHTML = "You win! Rock beats scissors";
         userScore++;
-        result = "You win! Rock beats scissors";
-    } else if (computerSelection === "paper") {
+    } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
+        document.querySelector('#results').innerHTML = "You lose. Paper beats rock.";
         computerScore++;
-        result = "You lose. Paper beats rock.";
     }
-    return result;
 }
 
 function logResults() {
-    document.querySelector('#results').innerHTML = "test";
+    //document.querySelector('#results').innerHTML = result;
     document.querySelector('#userScore').innerHTML = "Your score = " + userScore;
     document.querySelector('#computerScore').innerHTML = "Computer's score = " + computerScore;
 }
